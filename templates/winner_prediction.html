@@ -1,0 +1,16 @@
+{%extends "navs.html"%}
+{%block start%}
+<div class="containermain"> 
+        {% if allowed == "yes" %}
+    
+    
+        <div class="score_display">
+        <ul class="justify-content-center">
+        <h4>Predicted Score at the End of 20th Over is <strong>{{final_score}}</strong></h54> 
+        </ul>
+        </div>
+
+        {% endif %}
+</div>
+
+{%endblock%}
