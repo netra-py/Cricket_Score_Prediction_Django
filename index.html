@@ -1,0 +1,84 @@
+{%extends "navs.html"%}
+{%block start%}
+<div class="containermain"> 
+    
+    <form  action ="/winner_prediction/" method="POST">
+        {% csrf_token %}
+        <div class="container text-center">
+            <h3>Let's Predict the Score for the 1st Innings</h3> 
+        <div class="row row-cols-2">
+        <label for="select-venue" class="space">Select Venue</label>
+        <select name="ven" id="select-venue" >
+            <!-- <option value="select">Select Batting Team</option> -->
+            {% for venue in venues %}
+                venue
+                <option  value="{{ venue.vid }}">{{ venue.venue }}</option>
+            {% endfor %}
+        </select>
+        </div>
+        <br>
+        <div class="row row-cols-2">
+        
+        <label for="select-bat" class="space">Select Batting Team</label>
+        <select name="bat-team" id="select-bat" >
+            <!-- <option value="select">Select Batting Team</option> -->
+            {% for team in teams %}
+                <option value="{{ team.tid }}">{{ team.team }}</option>
+            {% endfor %}
+        </select>
+        
+
+        
+        <label for="select-bowl" id="s-bowl" class="space">Select Bowling Team</label>
+        <select name="bowl-team" id="select-bowl" >
+            <!-- <option value="select">Select Batting Team</option> -->
+            {% for team in teams %}
+                <option value="{{ team.tid }}">{{ team.team }}</option>
+            {% endfor %}
+        </select>
+        
+        </div>
+        <br>
+
+        <div class="row">
+        <label for="c-score" class="space">Enter Current Score</label>
+        <input type="number" inputmode="decimal"  min="1" id="c-score" name="c-score"><br>
+        
+
+        </div>
+        <div class="row">
+        <label for="b-left" class="space">Enter Number of Balls Left</label>
+        <input type="number" inputmode="decimal"  min="1" max="120" id="b-left" name="b-left"><br>
+        </div>
+        <div class="row">
+        <label for="w-left" class="space">Enter Number of Wickets Left</label>
+        <input type="number" inputmode="decimal"  min="1" max="10" id="w-left" name="w-left"><br>
+        </div>
+        <div class="row">
+        <label for="5-score" class="space">Enter Last 5-Overs Score</label>
+        <input type="number" inputmode="decimal"  id="5-score" name="5-score"><br>
+        </div>
+        </div>
+        
+        
+        <button type="submit" class="btn btn-info" id="btn-block">Submit</button>
+    </form>
+
+
+        <!-- {% if allowed == "yes" %}
+    
+    
+        <div class="score_display">
+        <ul class="justify-content-center">
+        <h5>Predicted Score at the End of 20th Over is {{final_score}}</h5> 
+        </ul>
+        </div>
+
+        {% endif %} -->
+
+    </div>
+    
+
+    
+
+{%endblock%}
